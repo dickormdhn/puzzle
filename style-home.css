@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.hero {
+  background: linear-gradient(to bottom, #e1f8e4, #b8eed9, #6fbfb2);
+  color: #004d40;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+a.btn-primary {
+  text-decoration: none;
+}
+.btn-primary {
+  background-color: #009688; /* Toska cerah */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00796b; /* Lebih gelap saat hover */
+}
+
+.features h2,
+.regions h2,
+.cta h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.feature-list li {
+  margin: 10px 0;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff0cc;
+  border: 1px solid #ffe299;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cta {
+  background: linear-gradient(to top, #e1f8e4, #b8eed9, #6fbfb2);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  text-align: center;
+}

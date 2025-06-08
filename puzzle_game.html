@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Jigsaw Puzzle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <h1>Mini Jigsaw Puzzle</h1>
+      <div id="puzzle-preview-container">
+        <img id="preview-image" src="" alt="Puzzle Preview" />
+        <p class="preview-label">Gambar Asli:</p>
+      </div>
+      <div id="puzzle-area">
+        <div id="puzzle-pieces-container"></div>
+        <div id="puzzle-board-container"></div>
+      </div>
+      <div id="level-info"></div>
+    </div>
+
+    <div id="completion-popup" class="hidden">
+      <div class="popup-content">
+        <p id="popup-message"></p>
+        <button id="next-level-btn">Level Selanjutnya</button>
+        <button id="finish-game-btn">Selesai</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

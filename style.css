@@ -1,0 +1,339 @@
+/* General Styling (Default for larger screens/Desktop) */
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background-color: #dff6dd;
+  margin: 0;
+  display: flex; /* Gunakan flexbox untuk memusatkan game-container */
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container {
+  background-color: #f0fff4;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto; /* Margin atas/bawah 20px, auto untuk horizontal */
+  max-width: 1200px; /* Diperlebar untuk menampung pratinjau */
+  width: 90%; /* Fleksibel, ambil 90% lebar parent */
+  box-sizing: border-box; /* Pastikan padding dihitung dalam ukuran */
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 1px;
+  font-size: 2.5em; /* Ukuran font lebih besar untuk desktop */
+}
+
+#puzzle-area {
+  display: flex;
+  gap: 20px; /* Sesuaikan gap untuk pratinjau */
+  justify-content: center; /* Ini memusatkan item secara horizontal */
+  align-items: flex-start; /* Ini menempatkan item di bagian atas secara vertikal */
+  flex-wrap: nowrap; /* Jangan wrap secara default */
+}
+
+/* --- Gaya untuk Kontainer Pratinjau --- */
+#puzzle-preview-container {
+  width: 200px; /* Lebar pratinjau */
+  height: 200px; /* Tinggi pratinjau */
+  border: 2px solid #5ebda0; /* Warna border sesuai tema */
+  background-color: #a1d7c5; /* Warna background sesuai tema */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Tambahkan margin auto untuk pemusatan horizontal di dalam flex item */
+  margin: 0 auto;
+}
+
+#preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Pastikan gambar pas di dalam kontainer */
+  border-radius: 5px;
+  border: 1px solid #2d6d60; /* Warna border sesuai tema */
+}
+
+.preview-label {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 3px;
+  font-weight: bold;
+}
+/* --- Akhir Gaya untuk Kontainer Pratinjau --- */
+
+#puzzle-pieces-container {
+  width: 300px; /* Lebar default untuk kontainer potongan */
+  height: 300px; /* Tinggi default untuk kontainer potongan */
+  border: 1px dashed #a1d7c5;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+  background-image: none; /* Penting: agar tidak bertabrakan dengan gambar asli */
+  opacity: 1; /* Pastikan opacity normal */
+}
+
+.puzzle-piece {
+  /* width dan height diatur oleh JS */
+  background-size: cover;
+  border: 1px solid #66bb6a;
+  cursor: grab;
+  position: absolute;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease;
+  z-index: 10;
+}
+
+.puzzle-piece.dragging {
+  cursor: grabbing;
+  opacity: 0.8;
+  z-index: 20;
+}
+
+#puzzle-board-container {
+  display: grid;
+  /* grid-template-columns dan grid-template-rows diatur oleh JS */
+  width: 400px; /* Lebar default untuk papan puzzle */
+  height: 400px; /* Tinggi default untuk papan puzzle */
+  border: 2px solid #5ebda0;
+  background-color: #a1d7c5;
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.puzzle-slot {
+  /* width dan height diatur oleh JS */
+  border: 1px dashed #5ebda0;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: #666;
+}
+
+.puzzle-slot.occupied {
+  background-color: transparent;
+  border: none;
+}
+
+#level-info {
+  font-size: 1.5em; /* Ukuran font lebih besar untuk desktop */
+  color: #2d6d60;
+  font-weight: bold;
+}
+
+/* Popup Styling */
+#completion-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: justify; /* Tetap justify seperti permintaan Anda */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-out;
+  max-width: 600px; /* Lebih besar dari sebelumnya untuk desktop */
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.popup-content h2 {
+  color: #4caf50;
+  text-align: center; /* Pusat judul h2 */
+  margin-bottom: 15px;
+  font-size: 2em; /* Ukuran font lebih besar untuk pop-up desktop */
+}
+
+.popup-content h3 {
+  color: #388e3c;
+  margin-bottom: 10px;
+  font-size: 1.5em; /* Ukuran font lebih besar untuk pop-up desktop, diperbaiki dari "1" */
+}
+
+.popup-content p {
+  font-size: 1rem; /* Ukuran font lebih besar untuk pop-up desktop, diperbaiki dari "0.9rem" agar konsisten dengan em */
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.popup-content button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em; /* Ukuran font tombol lebih besar */
+  transition: background-color 0.2s ease;
+}
+
+.popup-content button:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ======================================= */
+/* Media Queries for Responsiveness */
+/* ======================================= */
+
+/* For Tablets (up to 768px wide) */
+@media (max-width: 768px) {
+  #game-container {
+    padding: 15px;
+    gap: 15px;
+    max-width: 90%; /* Sesuaikan untuk tablet */
+  }
+
+  h1 {
+    font-size: 2em; /* Sedikit lebih kecil untuk tablet */
+  }
+
+  #puzzle-area {
+    gap: 15px; /* Kurangi gap untuk tablet */
+    flex-direction: row; /* Tetap berdampingan jika muat */
+    flex-wrap: wrap; /* Izinkan wrap jika tidak muat (misal, mode potret) */
+    justify-content: center; /* Pusatkan jika wrap */
+    align-items: center; /* Tambahkan ini agar semua item di flex-area terpusat secara vertikal jika ada perbedaan tinggi */
+  }
+
+  #puzzle-preview-container {
+    width: 150px; /* Ukuran pratinjau lebih kecil di tablet */
+    height: 150px;
+    padding: 8px;
+    margin: 0 auto; /* Tambahkan ini untuk pemusatan horizontal saat wrap */
+  }
+
+  #puzzle-pieces-container,
+  #puzzle-board-container {
+    width: 350px; /* Sedikit lebih kecil untuk tablet */
+    height: 350px;
+  }
+
+  #level-info {
+    font-size: 1.3em;
+  }
+
+  .popup-content {
+    max-width: 500px;
+    padding: 25px;
+  }
+
+  .popup-content h2 {
+    font-size: 1.8em;
+  }
+  .popup-content h3 {
+    font-size: 1.3em;
+  }
+  .popup-content p {
+    font-size: 1em;
+  }
+  .popup-content button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+/* For Smartphones (up to 480px wide) */
+@media (max-width: 480px) {
+  #game-container {
+    padding: 10px;
+    gap: 10px;
+    margin: 10px auto;
+    max-width: 95%; /* Hampir penuh layar untuk smartphone */
+  }
+
+  h1 {
+    font-size: 1.8em; /* Lebih kecil lagi untuk smartphone */
+  }
+
+  #puzzle-area {
+    flex-direction: column; /* Tumpuk semua di smartphone */
+    align-items: center; /* **Pusatkan secara horizontal** */
+    gap: 10px; /* Kurangi gap untuk smartphone */
+  }
+
+  #puzzle-preview-container {
+    width: 120px; /* Ukuran pratinjau paling kecil di smartphone */
+    height: 120px;
+    padding: 5px;
+    margin: 0 auto; /* **Ini adalah yang membuat pratinjau di tengah saat dalam mode kolom** */
+  }
+
+  #puzzle-pieces-container,
+  #puzzle-board-container {
+    width: 280px; /* Lebih kecil untuk smartphone agar muat */
+    height: 280px;
+    padding: 8px;
+  }
+
+  #level-info {
+    font-size: 1.1em;
+  }
+
+  /* Sesuaikan font size di popup untuk smartphone */
+  .popup-content {
+    max-width: 320px; /* Batasi lebih kecil untuk smartphone */
+    padding: 20px;
+  }
+  .popup-content h2 {
+    font-size: 1.5em;
+  }
+  .popup-content h3 {
+    font-size: 1.1em;
+  }
+  .popup-content p {
+    font-size: 0.9em;
+  }
+  .popup-content button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin: 0 5px;
+  }
+}
